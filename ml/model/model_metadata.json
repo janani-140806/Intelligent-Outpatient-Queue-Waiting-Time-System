@@ -1,0 +1,106 @@
+{
+  "dataset_type": "Synthetic Hospital OPD Waiting-Time Benchmark",
+  "is_synthetic": true,
+  "total_samples": 3500,
+  "train_samples": 2800,
+  "test_samples": 700,
+  "trained_at": "2026-10-02T12:47:57.597316",
+  "features": {
+    "categorical": [
+      "department",
+      "doctor"
+    ],
+    "numerical": [
+      "patientsAhead",
+      "averageConsultationTime",
+      "currentQueueLength",
+      "availableDoctors",
+      "dayOfWeek",
+      "hour",
+      "noShowRate"
+    ]
+  },
+  "models_compared": {
+    "linear_regression": {
+      "name": "Linear Regression",
+      "mae": 26.3,
+      "rmse": 37.09,
+      "r2_score": 0.8092,
+      "train_time_sec": 0.042
+    },
+    "random_forest": {
+      "name": "Random Forest Regressor",
+      "mae": 8.37,
+      "rmse": 13.26,
+      "r2_score": 0.9756,
+      "train_time_sec": 0.271,
+      "n_estimators": 120,
+      "max_depth": 14
+    }
+  },
+  "best_model": {
+    "name": "Random Forest Regressor",
+    "saved_file": "best_model.joblib",
+    "mae": 8.37,
+    "rmse": 13.26,
+    "r2_score": 0.9756
+  },
+  "top_feature_importances": [
+    {
+      "feature": "patientsAhead",
+      "importance": 0.4775
+    },
+    {
+      "feature": "availableDoctors",
+      "importance": 0.3019
+    },
+    {
+      "feature": "averageConsultationTime",
+      "importance": 0.2004
+    },
+    {
+      "feature": "hour",
+      "importance": 0.0066
+    },
+    {
+      "feature": "noShowRate",
+      "importance": 0.0038
+    },
+    {
+      "feature": "dayOfWeek",
+      "importance": 0.0037
+    },
+    {
+      "feature": "currentQueueLength",
+      "importance": 0.0029
+    },
+    {
+      "feature": "department_Orthopedics",
+      "importance": 0.0006
+    },
+    {
+      "feature": "doctor_Dr. Marcus Vance",
+      "importance": 0.0006
+    },
+    {
+      "feature": "doctor_Dr. Rajesh Sharma",
+      "importance": 0.0004
+    }
+  ],
+  "example_prediction": {
+    "input": {
+      "department": "Cardiology",
+      "doctor": "Dr. Sarah Jenkins",
+      "patientsAhead": 5,
+      "averageConsultationTime": 18.0,
+      "currentQueueLength": 7,
+      "availableDoctors": 1,
+      "dayOfWeek": 2,
+      "hour": 11,
+      "noShowRate": 0.1
+    },
+    "predictedWaitingTime": 107.2,
+    "unit": "minutes"
+  },
+  "disclaimer": "Academic prototype. Estimated waiting time is for informational purposes only and may change depending on hospital conditions."
+}
